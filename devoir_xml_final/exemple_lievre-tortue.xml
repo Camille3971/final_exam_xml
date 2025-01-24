@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Le Lièvre et la Tortue</title>
+        <author>
+          <persName>
+            <forename>Jean</forename>
+            <surname>dela Fontaine</surname>
+          </persName>
+        </author>
+        <editor>
+          <persName>
+            <forename>Camille</forename>
+            <surname>Batard</surname>
+            <affiliation>Student at l'Ecole nationale des chartes</affiliation>
+            <email>camille.batard@chartes.psl.eu</email>
+          </persName>
+        </editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>
+          <forename>Camille</forename>
+          <surname>Batard</surname>
+        </publisher>
+        <distributor>Github.com</distributor>
+        <date when="2025-01-21">21/01/2025</date>
+        <availability>
+          <licence>Ce texte est dans le domaine public. Utilisation libre sous condition de mention de la source.</licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Fables de Jean de La Fontaine</title>
+          <author>
+            <persName>Jean</persName>
+            <surname>de la Fontaine</surname>
+          </author>
+          <date when="1668">1668</date>
+          <publisher></publisher> 
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>Encodage de la fable Le Lièvre et la Tortue selon les normes de la TEI (Text Encoding Initiative).</p>
+      </projectDesc>
+      <editorialDecl>
+        <p>Le texte a été transcrit fidèlement à partir de l'édition originale.</p>
+      </editorialDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fra">Français</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <term>Fable</term>
+          <term>Jean de La Fontaine</term>
+          <term>Poésie</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+  <front>
+    <head>Le Lièvre et la Tortue</head>
+  </front>
+  <body>
+    <lg type="stanza" subtype="morale" n="1" rhyme="ABAB">
+      <l met="alexandrin" n="1">Rien ne sert de courir ;<caesura/> il faut partir à <rhyme label="A">point</rhyme>.</l>
+      <l met="alexandrin" n="2">Le Lièvre et la Tortue<caesura/> en sont un <rhyme label="B">témoignage</rhyme>.</l>
+      <l met="alexandrin" n="3">Gageons, dit celle-ci,<caesura/> que vous n'atteindrez <rhyme label="A">point</rhyme></l>
+      <l met="alexandrin" n="4">Sitôt que moi ce but.<caesura/> — Sitôt ? Êtes-vous <rhyme label="B">sage</rhyme> ?</l>
+    </lg>
+    <lg type="stanza" n="2" rhyme="AABB">
+      <l met="octosyllabe" n="5">Repartit l'animal <rhyme label="A">léger</rhyme>.</l>
+      <l met="octosyllabe" n="6">Ma commère, il vous faut <rhyme label="A">purger</rhyme></l>
+      <l met="octosyllabe" n="7">Avec quatre grains d'<rhyme label="B">ellébore</rhyme>.</l>
+      <l met="octosyllabe" n="8">— Sage ou non, je parie <rhyme label="B">encore</rhyme>.</l>
+    </lg>
+    <lg type="stanza" n="3" rhyme="AA">
+      <l met="octosyllabe" n="9">Ainsi fut fait : et de tous <rhyme label="A">deux</rhyme></l>
+      <l met="octosyllabe" n="10">On mit près du but les <rhyme label="A">enjeux</rhyme> :</l>
+    </lg>
+     <lg type="stanza" n="4" rhyme="ABAB">
+      <l met="octosyllabe" n="11">Savoir quoi, ce n'est pas l'<rhyme label="A">affaire</rhyme>,</l>
+      <l met="alexandrin" n="12">Ni de quel juge l'on con<rhyme label="B">vint</rhyme>.</l>
+      <l met="alexandrin" n="13">Notre Lièvre n'avait que quatre pas à <rhyme label="A">faire</rhyme> ;</l>
+      <l met="alexandrin" n="14">J'entends de ceux qu'il fait lorsque prêt d'être <rhyme label="B">atteint</rhyme>.</l>
+    </lg>
+    <lg type="stanza" n="5" rhyme="AABB">
+      <l met="alexandrin" n="15">Il s'éloigne des chiens,<caesura/> les renvoie aux Ca<rhyme label="A">lendes</rhyme>,</l>
+      <l met="octosyllabe" n="16">Et leur fait arpenter les <rhyme label="A">landes</rhyme>.</l>
+      <l met="alexandrin" n="17">Ayant, dis-je, du temps<caesura/> de reste pour <rhyme label="B">brouter</rhyme>,</l>
+      <l met="octosyllabe" n="18">Pour dormir, et pour <rhyme label="B">écouter</rhyme>.</l>
+    </lg>
+    <lg type="stanza" n="6" rhyme="ABAB">
+      <l met="decasyllabe" n="19">D'où vient le vent, il laisse la <rhyme label="A">Tortue</rhyme></l>
+      <l met="octosyllabe" n="20">Aller son train de <rhyme label="B">sénateur</rhyme>.</l>
+      <l met="octosyllabe" n="21">Elle part, elle <rhyme label="A">s'evertue</rhyme> ;</l>
+      <l met="octosyllabe" n="22">Elle se hâte avec <rhyme label="B">lonteur</rhyme>.</l>
+    </lg>
+    <lg type="stanza" n="7" rhyme="AAB">
+      <l met="alexandrin" n="23">Lui cependant mépri<caesura/>se une telle <rhyme label="A">victoire</rhyme>,</l>
+      <l met="octosyllabe" n="24">Tient la gageure à peu de <rhyme label="A">gloire</rhyme>,</l>
+      <l met="octosyllabe" n="25">Croit qu'il y va de son <rhyme label="B">honneur</rhyme>,</l>
+    </lg>
+    <lg type="stanza" n="8" rhyme="AA">
+      <l met="decasyllabe" n="26">De partir tard. Il broute, il se <rhyme label="A">repose</rhyme>.</l>
+      <l met="octosyllabe" n="27">Il s'amuse à toute autre <rhyme label="A">chose</rhyme></l>
+    </lg>
+    <lg type="stanza" n="9" rhyme="ABAB">
+      <l met="decasyllabe" n="28">Qu'à la gageure. À la fin quand il <rhyme label="A">vit</rhyme></l>
+      <l met="alexandrin" n="29">Que l'autre touchait pres<caesura/>que au bout de la <rhyme label="B">carrière</rhyme>,</l>
+      <l met="alexandrin" n="30">Il partit comme un trait ;<caesura/> mais les élans qu'il <rhyme label="A">fit</rhyme>.</l>
+      <l met="alexandrin" n="31">Furent vains : la Tortue<caesura/> arriva la <rhyme label="B">première</rhyme>.</l>
+    </lg>
+    <lg type="stanza" n="10" rhyme="ABAB">
+      <l met="alexandrin" n="32">Eh bien ! lui cria<caesura/>-t-elle, avais-je pas <rhyme label="A">raison</rhyme> ?</l>
+      <l met="octosyllabe" n="33">De quoi vous sert votre <rhyme label="B">vitesse</rhyme> ?</l>
+      <l met="octosyllabe" n="34">Moi, l'emporter ! et que <rhyme label="A">serait-ce</rhyme></l>
+      <l met="octosyllabe" n="35">Si vous portiez une <rhyme label="B">maison</rhyme> ?</l>
+    </lg>
+   </body>
+ </text>
+</TEI>

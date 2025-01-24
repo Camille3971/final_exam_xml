@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+      <teiHeader>
+         <fileDesc>
+            <titleStmt>
+               <title>ODD for fables</title>
+               <author>Batard Camille</author>
+            </titleStmt>
+            <publicationStmt>
+                <authority>BATARD Camille</authority>
+                <availability>
+                      <licence>
+                         <p>This document is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).</p>
+                         <ref target="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons License</ref>
+                      </licence>
+                   </availability>
+                </publicationStmt>
+               <sourceDesc>
+               <p>Derived from the TEI P5 standard. This ODD file is a customized subset for encoding fables, specifically the works of Jean de La Fontaine. The TEI P5 base schema has been tailored to meet the requirements of encoding poetic and literary texts, focusing on rhyme, meter, and structure in French literary fables.
+                  <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">TEI P5 Standard (Base ODD)</ref></p>
+               <p>ODD generated using the oddbyexample stylesheet and edited using <ref target="https://www.oxygenxml.com">Oxygen XML Editor</ref>.</p>
+            </sourceDesc>
+         </fileDesc>
+            <encodingDesc>
+               <p>This ODD file defines a subset of TEI P5 tailored to encoding the fables of Jean de La Fontaine. It includes provisions for capturing the structure of French poetic texts, including stanza structure, rhyme, meter, and other literary features like caesura.</p>        
+            </encodingDesc>
+         <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+         </langUsage>
+         <textClass>
+            <keywords>
+               <term>Fable</term>
+               <term>Jean de La Fontaine</term>
+               <term>Poetry</term>
+               <term>Literature</term>
+               <term>French literature</term>
+               <term>Verse</term>
+               <term>Meter</term>
+               <term>Rhyme</term>
+            </keywords>
+         </textClass>
+         </profileDesc>
+      </teiHeader>
+   <text>
+      <body>
+         <div type="intro">
+            <head>
+               <title>Project description</title>
+            </head>
+            <p>The goal of this project is to explore and represent the diversity in the fables of Jean de La Fontaine by focusing on the poetic structure. Jean de La Fontaine (1621-1695) was a French poet and fabulist, well known for his large collection of fables written in verse and often using animals to represent human traits.</p>
+            
+            <p>In general, fables are written to convey moral lessons to the reader and the work of Jean de La Fontaine exemplifies this tradition. He even dedicates his collection to the Dauphin, the heir of the French throne, who was only seven at the time, to educate him about the world. Therefore, encoding this project in XML enables us to understand how La Fontaine used and adapted the structure of his fables to convey various morals.</p>
+            
+            <p>In this project, XML is primarily used to encode the formal elements of the fables, such as rhyme schemes, meter and caesuras. This approach makes it easier to compare the different structures. Moreover, encoding the corpus in XML enables machine queries like searching for patterns and calculating percentages on the frequency of XML elements, which adds a level of precision that would be difficult and time consuming to achieve through human observation.</p>
+            
+            <p>In addition to serving as a set of rules for standardizing the encoding of the various texts within this project’s corpus, this ODD file can be applied to other French poetic works (with some specific adjustments made for the particularities of each work).</p>
+         </div>
+         <div>
+            <head>
+               <title>Elements and attributes choices justification</title>
+            </head>
+            <p><![CDATA[Each stanza is encoded in a <lg> element with multiple attributes: the @type attribute indicates that it is a stanza, the @subtype attribute, with the value 'morale,' appears only when the stanza contains the moral of the fable, the @n attribute provides the stanza number as counted from the beginning of the fable, and the @rhyme attribute specifies the rhyme scheme corresponding to the verse encoded in the stanza.]]></p>
+            
+            <p><![CDATA[Each <lg> element contains multiple <l> elements, each encoding a single verse of the fable. The <l> element has three attributes: the @met attribute describes the meter of the verse (the number of syllables) and takes a closed value from "alexandrin," "octosyllabe," "decasyllabe," or "tetrasyllabe." The @n attribute provides the verse number as counted from the beginning of the fable.]]></p>
+            
+            <p><![CDATA[If, and only if, the <l> element includes the @met attribute with the value "alexandrin," it must also contain the <caesura/> self-closing element to indicate the position of the caesura in the verse. Additionally, the <l> element includes a <rhyme> element with a @level attribute to specify the level of the rhyme.]]></p>
+         </div>
+         <div>
+            <head>
+               <title>Schema and rules</title>
+            </head>
+         <schemaSpec ident="oddbyexample" start="TEI ">
+            <moduleRef key="tei"/>
+            <!--Checking module textcrit-->
+            <classRef key="att.textCritical"/>
+            <classRef key="model.rdgLike"/>
+            <classRef key="model.rdgPart"/>
+            <classSpec ident="att.textCritical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="varSeq" mode="delete"/>
+                  <attDef ident="require" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module msdescription-->
+            <classRef key="model.physDescPart"/>
+            <!--Checking module namesdates-->
+            <classRef key="model.persNamePart"/>
+            <moduleRef key="namesdates" include="persName surname forename affiliation"/>
+            <elementSpec ident="persName" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="surname" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="forename" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="affiliation" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module dictionaries-->
+            <classRef key="att.lexicographic"/>
+            <classRef key="model.entryLike"/>
+            <classRef key="model.formPart"/>
+            <classRef key="model.gramPart"/>
+            <classRef key="model.lexicalRefinement"/>
+            <classRef key="model.morphLike"/>
+            <classRef key="model.ptrLike.form"/>
+            <classSpec ident="att.lexicographic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="split" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="location" mode="delete"/>
+                  <attDef ident="mergedIn" mode="delete"/>
+                  <attDef ident="opt" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module tagdocs-->
+            <classRef key="att.combinable"/>
+            <classRef key="att.identified"/>
+            <classRef key="model.contentPart"/>
+            <classSpec ident="att.combinable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="mode" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.identified" type="atts" mode="change">
+               <attList>
+                  <attDef ident="ident" mode="delete"/>
+                  <attDef ident="predeclare" mode="delete"/>
+                  <attDef ident="module" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.ascribed.directed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="toWhom" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.dimensions" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="extent" mode="delete"/>
+                  <attDef ident="precision" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.damaged" type="atts" mode="change">
+               <attList>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable.w3c" type="atts" mode="change">
+               <attList>
+                  <attDef ident="notBefore" mode="delete"/>
+                  <attDef ident="notAfter" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="period" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.divLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+                  <attDef ident="sample" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.media" type="atts" mode="change">
+               <attList>
+                  <attDef ident="width" mode="delete"/>
+                  <attDef ident="height" mode="delete"/>
+                  <attDef ident="scale" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.naming" type="atts" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="nymRef" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.pointing.group" type="atts" mode="change">
+               <attList>
+                  <attDef ident="domains" mode="delete"/>
+                  <attDef ident="targFunc" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.segLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="function" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.timed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.transcriptional" type="atts" mode="change">
+               <attList>
+                  <attDef ident="status" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.personal" type="atts" mode="change">
+               <attList>
+                  <attDef ident="full" mode="delete"/>
+                  <attDef ident="sort" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module core-->
+            <moduleRef key="core"
+                       include="p term email date head author editor title publisher bibl l lg"/>
+            <elementSpec ident="term" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="date" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="head" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="author" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="editor" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="title" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="level" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="bibl" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="l" mode="change">
+               <content>
+                  <!-- Rule that requires that i the elements caesura and rhyme are both present, they must appear in this order -->
+                  <textNode/>
+                  <sequence>
+                     <elementRef key="caesura" minOccurs="0" maxOccurs="1"/>
+                     <textNode/>
+                     <elementRef key="rhyme" minOccurs="1" maxOccurs="1"/>
+                  </sequence>
+                  <textNode/>
+               </content>
+               <!-- Rule that only allows the presence of the element caesura in the element l with an attribute met="alexandrin" -->
+               <constraintSpec ident="caesura_in_alexandrin" mode="change" scheme="schematron">
+                  <constraint>
+                     <sch:rule context="tei:l">
+                        <sch:assert test="not(caesura) or @met = 'alexandrin'"/>
+                     </sch:rule>
+                  </constraint>
+               </constraintSpec>
+               <!-- Rule that only allows the values octosyllabe and alexandrin for the attribute met of l -->
+               <attList>
+                  <attDef ident="rhyme" mode="delete"/>
+                  <attDef ident="met" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="octosyllabe"/>
+                        <valItem ident="alexandrin"/>
+                        <valItem ident="decasyllabe"/>
+                        <valItem ident="tetrasyllabe"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="lg" mode="change">
+               <attList>
+                  <attDef ident="met" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="stanza"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <!--Checking module figures-->
+            <!--Checking module header-->
+            <moduleRef key="header"
+                       include="teiHeader fileDesc titleStmt publicationStmt distributor availability licence sourceDesc encodingDesc projectDesc editorialDecl profileDesc langUsage language textClass keywords"/>
+            <elementSpec ident="availability" mode="change">
+               <attList>
+                  <attDef ident="status" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="licence" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="language" mode="change">
+               <attList>
+                  <attDef ident="usage" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="keywords" mode="change">
+               <attList>
+                  <attDef ident="scheme" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module gaiji-->
+            <classRef key="att.gaijiProp"/>
+            <classSpec ident="att.gaijiProp" type="atts" mode="change">
+               <attList>
+                  <attDef ident="name" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="scheme" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module verse-->
+            <classRef key="att.metrical"/>
+            <moduleRef key="verse" include="caesura rhyme"/>
+            <elementSpec ident="rhyme" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <classSpec ident="att.metrical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="real" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module transcr-->
+            <!--Checking module linking-->
+            <!--Checking module analysis-->
+            <classRef key="att.linguistic"/>
+            <classSpec ident="att.linguistic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="lemma" mode="delete"/>
+                  <attDef ident="lemmaRef" mode="delete"/>
+                  <attDef ident="pos" mode="delete"/>
+                  <attDef ident="msd" mode="delete"/>
+                  <attDef ident="join" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module textstructure-->
+            <moduleRef key="textstructure" include="TEI text body front"/>
+            <elementSpec ident="TEI" mode="change">
+               <attList>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="text" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </elementSpec>
+         </schemaSpec>
+         </div>
+      </body>
+   </text>
+</TEI>
